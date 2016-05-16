@@ -18,8 +18,8 @@ module Lita
           description: "Remove doc."
         },
         list: {
-          regex: /^docs(:list)?$/,
-          command: "docs OR docs:list",
+          regex: /^docs(:all)?$/,
+          command: "docs:all",
           description: "Lists all known docs."
         },
         help: {
@@ -28,8 +28,8 @@ module Lita
           description: "Shows all doc commands."
         },
         add: {
-          regex: /^doc:add (.+) (http:\/\/.+)$/,
-          command: "docs:add [name] [url]",
+          regex: /^doc:new (.+) (http:\/\/.+)$/,
+          command: "doc:new [name] [url]",
           description: "Adds doc."
         },
         wtf: {
@@ -76,10 +76,15 @@ module Lita
       def list_docs(response)
         docs = doc_names
         msg = ""
-        docs.each do |doc|
-          msg += "`#{doc}` - #{redis.get doc}\n"
+        if docs.empty?
+          response.reply "No docs found."
+        else
+          docs.each do |doc|
+            msg += "`#{doc}` - #{redis.get doc}\n"
+          end
+          response.reply msg
         end
-        response.reply msg
+
       end
 
       def add_doc(response)
