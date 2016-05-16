@@ -18,8 +18,8 @@ module Lita
           description: "Remove doc."
         },
         list: {
-          regex: /^docs(:all)?$/,
-          command: "docs:all",
+          regex: /^docs(:list)?$/,
+          command: "docs:list",
           description: "Lists all known docs."
         },
         help: {
@@ -28,8 +28,8 @@ module Lita
           description: "Shows all doc commands."
         },
         add: {
-          regex: /^doc:new (.+) (http:\/\/.+)$/,
-          command: "doc:new [name] [url]",
+          regex: /^doc:add (.+) (https?:\/\/.+)$/,
+          command: "doc:add [name] [url]",
           description: "Adds doc."
         },
         wtf: {

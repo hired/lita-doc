@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "lita-doc"
-  spec.version       = "0.1.1"
+  spec.version       = "0.1.2"
   spec.authors       = ["Brad Herman"]
   spec.email         = ["brad@hired.com"]
   spec.description   = "Stores documentation locations."
